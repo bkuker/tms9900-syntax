@@ -3,16 +3,19 @@
   "name": "TMS9900 Assembly",
   "patterns": [
     { "include": "#comments" },
+    { "include": "#directives" },
+    { "include": "#mnemonics" },
     { "include": "#constants" },
     { "include": "#registers" },
-    { "include": "#mnemonics" },
     { "include": "#labels" }
   ],
   "repository": {
-    "comments": {
+    "directives": {
       "patterns": [
-        { "name": "comment.line.asterisk.tms9900", "match": "^\\*.*$" },
-        { "name": "comment.line.semicolon.tms9900", "match": ";.*$" }
+        {
+          "name": "keyword.other.directive.tms9900",
+          "match": "(?i)\\b(EQU|DATA|BYTE|TEXT|BSS|BES|ORG|END|AORG|RORG|IDT|DEF|REF)\\b"
+        }
       ]
     },
     "mnemonics": {
@@ -23,22 +26,29 @@
         }
       ]
     },
-    "registers": {
-      "patterns": [
-        { "name": "variable.parameter.register.tms9900", "match": "(?i)\\b(R(1[0-5]|[0-9]))\\b" }
-      ]
-    },
     "constants": {
       "patterns": [
         { "name": "constant.numeric.hex.tms9900", "match": "(?i)>[0-9A-F]+" },
-        { "name": "constant.numeric.decimal.tms9900", "match": "\\b[0-9]+\\b" }
+        { "name": "constant.numeric.decimal.tms9900", "match": "\\b[0-9]+\\b" },
+        { "name": "string.quoted.single.tms9900", "match": "'[^']*'" }
+      ]
+    },
+    "registers": {
+      "patterns": [
+        { "name": "variable.parameter.register.tms9900", "match": "(?i)\\b(R(1[0-5]|[0-9]))\\b" }
       ]
     },
     "labels": {
       "patterns": [
         { "name": "entity.name.function.label.tms9900", "match": "^[A-Z_][A-Z0-9_]*" }
       ]
+    },
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.asterisk.tms9900", "match": "^\\*.*$" },
+        { "name": "comment.line.semicolon.tms9900", "match": ";.*$" }
+      ]
     }
-  ],
+  },
   "scopeName": "source.tms9900"
 }
