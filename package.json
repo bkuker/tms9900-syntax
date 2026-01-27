@@ -2,7 +2,13 @@
   "name": "tms9900-syntax",
   "displayName": "TMS9900 Syntax",
   "description": "Syntax highlighting for TMS9900 Assembly (.a99)",
+  "publisher": "roy20100",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dummy/repo"
+  },
+  "readme": "README.md",
   "engines": { "vscode": "^1.50.0" },
   "categories": ["Programming Languages"],
   "contributes": {
