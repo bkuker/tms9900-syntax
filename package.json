@@ -1,0 +1,21 @@
+{
+  "name": "tms9900-syntax",
+  "displayName": "TMS9900 Syntax",
+  "description": "Syntax highlighting for TMS9900 Assembly (.a99)",
+  "version": "0.0.1",
+  "engines": { "vscode": "^1.50.0" },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [{
+      "id": "tms9900",
+      "aliases": ["TMS9900 Assembly", "tms9900"],
+      "extensions": [".a99"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "tms9900",
+      "scopeName": "source.tms9900",
+      "path": "./syntaxes/tms9900.tmLanguage.json"
+    }]
+  }
+}

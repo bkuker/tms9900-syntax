@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "TMS9900 Assembly",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#constants" },
+    { "include": "#registers" },
+    { "include": "#mnemonics" },
+    { "include": "#labels" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.asterisk.tms9900", "match": "^\\*.*$" },
+        { "name": "comment.line.semicolon.tms9900", "match": ";.*$" }
+      ]
+    },
+    "mnemonics": {
+      "patterns": [
+        {
+          "name": "keyword.control.tms9900",
+          "match": "(?i)\\b(A|AB|ABS|AI|ANDI|B|BL|BLWP|C|CB|CI|CLR|COC|CZC|DEC|DECT|DIV|IDIV|INC|INCT|INV|JEQ|JGT|JHE|JH|JL|JLE|JLT|JMP|JNC|JNE|JNO|JOC|JOP|LDCR|LI|LIMI|LREX|LWPI|MOV|MOVB|MPY|NEG|ORI|RTWP|S|SB|SBO|SBZ|SETO|SLA|SRA|SRC|SRL|STCR|STST|STWP|SWPB|SZC|SZF|TB|X|XOP)\\b"
+        }
+      ]
+    },
+    "registers": {
+      "patterns": [
+        { "name": "variable.parameter.register.tms9900", "match": "(?i)\\b(R(1[0-5]|[0-9]))\\b" }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        { "name": "constant.numeric.hex.tms9900", "match": "(?i)>[0-9A-F]+" },
+        { "name": "constant.numeric.decimal.tms9900", "match": "\\b[0-9]+\\b" }
+      ]
+    },
+    "labels": {
+      "patterns": [
+        { "name": "entity.name.function.label.tms9900", "match": "^[A-Z_][A-Z0-9_]*" }
+      ]
+    }
+  ],
+  "scopeName": "source.tms9900"
+}
