@@ -7,7 +7,8 @@
     { "include": "#mnemonics" },
     { "include": "#constants" },
     { "include": "#registers" },
-    { "include": "#labels" }
+    { "include": "#labels" },
+    { "include": "#punctuation" }
   ],
   "repository": {
     "directives": {
@@ -47,6 +48,14 @@
       "patterns": [
         { "name": "comment.line.asterisk.tms9900", "match": "^\\*.*$" },
         { "name": "comment.line.semicolon.tms9900", "match": ";.*$" }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "keyword.operator.tms9900",
+          "match": "[@*+]"
+        }
       ]
     }
   },
