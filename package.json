@@ -3,7 +3,7 @@
   "displayName": "TMS9900 Syntax",
   "description": "Syntax highlighting for TMS9900 Assembly (.a99)",
   "publisher": "roy20100",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/dummy/repo"
