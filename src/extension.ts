@@ -133,9 +133,15 @@ function formatLine(line: string, config: FormatConfig): string {
 
     const parsed = parseLine(line);
 
-    // Comment-only line
+    // Comment-only line - check if it starts at column 0 or has leading whitespace
     if (parsed.comment && !parsed.label && !parsed.instruction && !parsed.operands) {
-        return parsed.comment;
+        // If original line has no leading whitespace, keep it at column 0
+        if (line.trimStart() === line) {
+            return parsed.comment;
+        } else {
+            // Had leading whitespace, align to comment column
+            return ''.padEnd(config.commentColumn) + parsed.comment;
+        }
     }
 
     let formatted = '';
