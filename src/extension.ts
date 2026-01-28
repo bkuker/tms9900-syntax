@@ -24,7 +24,7 @@ const INSTRUCTIONS = new Set([
 
 // Assembler directives
 const DIRECTIVES = new Set([
-    'EQU', 'DATA', 'BYTE', 'TEXT', 'BSS', 'BES', 'ORG', 'END', 'AORG', 'RORG',
+    'EQU', 'DATA', 'BYTE', 'TEXT', 'BSS', 'BES', 'ORG', 'END', 'AORG', 'RORG', 'DORG',
     'IDT', 'DEF', 'REF', 'TITL', 'PAGE', 'LIST', 'UNL'
 ]);
 
