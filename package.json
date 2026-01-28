@@ -1,16 +1,25 @@
 {
   "name": "tms9900-syntax",
-  "displayName": "TMS9900 Syntax",
-  "description": "Syntax highlighting for TMS9900 Assembly (.a99)",
+  "displayName": "TMS9900 Syntax & Formatter",
+  "description": "Syntax highlighting and code formatting for TMS9900 Assembly (.a99)",
   "publisher": "roy20100",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/dummy/repo"
   },
   "readme": "README.md",
-  "engines": { "vscode": "^1.50.0" },
-  "categories": ["Programming Languages"],
+  "engines": { 
+    "vscode": "^1.50.0" 
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:tms9900"
+  ],
+  "main": "./out/extension.js",
   "contributes": {
     "languages": [{
       "id": "tms9900",
@@ -22,6 +31,59 @@
       "language": "tms9900",
       "scopeName": "source.tms9900",
       "path": "./syntaxes/tms9900.tmLanguage.json"
-    }]
+    }],
+    "configuration": {
+      "title": "TMS9900 Formatter",
+      "properties": {
+        "tms9900.format.labelColumn": {
+          "type": "number",
+          "default": 0,
+          "description": "Column position for labels (usually 0 for leftmost)"
+        },
+        "tms9900.format.instructionColumn": {
+          "type": "number",
+          "default": 8,
+          "description": "Column position for instructions"
+        },
+        "tms9900.format.operandColumn": {
+          "type": "number",
+          "default": 18,
+          "description": "Column position for operands (informational, spacing is automatic)"
+        },
+        "tms9900.format.commentColumn": {
+          "type": "number",
+          "default": 40,
+          "description": "Column position for aligning comments"
+        },
+        "tms9900.format.uppercaseInstructions": {
+          "type": "boolean",
+          "default": true,
+          "description": "Convert instructions to uppercase"
+        },
+        "tms9900.format.uppercaseDirectives": {
+          "type": "boolean",
+          "default": true,
+          "description": "Convert directives (EQU, DATA, etc.) to uppercase"
+        },
+        "tms9900.format.spaceAfterComma": {
+          "type": "boolean",
+          "default": true,
+          "description": "Add space after commas in operands (e.g., 'R1, R2' instead of 'R1,R2')"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.50.0",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^2.0.0"
   }
 }
