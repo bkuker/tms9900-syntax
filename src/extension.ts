@@ -142,7 +142,12 @@ function formatLine(line: string, config: FormatConfig): string {
 
     // Add label at column 0 or configured position
     if (parsed.label) {
-        formatted = parsed.label.padEnd(config.instructionColumn);
+        // If label is longer than instructionColumn, add at least one space
+        if (parsed.label.length >= config.instructionColumn) {
+            formatted = parsed.label + ' ';
+        } else {
+            formatted = parsed.label.padEnd(config.instructionColumn);
+        }
     } else {
         formatted = ''.padEnd(config.instructionColumn);
     }
@@ -158,17 +163,19 @@ function formatLine(line: string, config: FormatConfig): string {
             inst = instUpper;
         }
         
-        formatted += inst;
+        // If we already have content and instruction would be too close, ensure space
+        if (formatted.length > 0 && formatted.trimEnd() === formatted) {
+            // Content exists and has no trailing spaces, add one
+            formatted += inst;
+        } else {
+            formatted += inst;
+        }
     }
 
     // Add operands
     if (parsed.operands) {
-        // Ensure at least one space before operands
-        if (formatted.trimEnd() === formatted) {
-            formatted += ' ';
-        } else {
-            formatted = formatted.trimEnd() + ' ';
-        }
+        // Always ensure at least one space before operands
+        formatted = formatted.trimEnd() + ' ';
         formatted += formatOperands(parsed.operands, config);
     }
 
