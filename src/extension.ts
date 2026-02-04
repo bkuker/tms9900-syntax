@@ -88,7 +88,7 @@ function parseLine(line: string): ParsedLine {
 
     // Check if first token is a label (not an instruction or directive)
     const firstToken = tokens[tokenIndex].toUpperCase();
-    const isInstOrDir = INSTRUCTIONS.has(firstToken) || DIRECTIVES.has(firstToken);
+    const isInstOrDir = INSTRUCTIONS.has(firstToken) || DIRECTIVES.has(firstToken) || firstToken.startsWith(".");
     
     if (!isInstOrDir && tokens.length > 1) {
         // First token is a label
