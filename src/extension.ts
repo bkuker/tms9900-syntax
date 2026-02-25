@@ -19,13 +19,13 @@ const INSTRUCTIONS = new Set([
     'JEQ', 'JGT', 'JHE', 'JH', 'JL', 'JLE', 'JLT', 'JMP', 'JNC', 'JNE', 'JNO', 'JOC', 'JOP',
     'LDCR', 'LI', 'LIMI', 'LREX', 'LWPI', 'MOV', 'MOVB', 'MPY', 'NEG', 'ORI',
     'RTWP', 'S', 'SB', 'SBO', 'SBZ', 'SETO', 'SLA', 'SRA', 'SRC', 'SRL',
-    'STCR', 'STST', 'STWP', 'SWPB', 'SZC', 'SZF', 'TB', 'X', 'XOP'
+    'STCR', 'STST', 'STWP', 'SWPB', 'SZC', 'SZF', 'TB', 'X', 'XOP', 'XOR'
 ]);
 
 // Assembler directives
 const DIRECTIVES = new Set([
     'EQU', 'DATA', 'BYTE', 'TEXT', 'BSS', 'BES', 'ORG', 'END', 'AORG', 'RORG', 'DORG',
-    'IDT', 'DEF', 'REF', 'TITL', 'PAGE', 'LIST', 'UNL'
+    'IDT', 'DEF', 'REF', 'TITL', 'PAGE', 'LIST', 'UNL', "BCOPY", "COPY", "SAVE"
 ]);
 
 // Formatting configuration

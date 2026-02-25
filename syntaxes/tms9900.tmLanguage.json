@@ -16,7 +16,7 @@
       "patterns": [
         {
           "name": "keyword.other.directive.tms9900",
-          "match": "(?i)\\b(EQU|DATA|BYTE|TEXT|BSS|BES|ORG|END|AORG|RORG|DORG|IDT|DEF|REF)\\b"
+          "match": "(?i)\\b(EQU|DATA|BYTE|TEXT|BSS|BES|ORG|END|AORG|RORG|DORG|IDT|DEF|REF|BCOPY|COPY|SAVE)\\b"
         }
       ]
     },
@@ -24,7 +24,7 @@
       "patterns": [
         {
           "name": "keyword.control.tms9900",
-          "match": "(?i)\\b(A|AB|ABS|AI|ANDI|B|BL|BLWP|C|CB|CI|CLR|COC|CZC|DEC|DECT|DIV|IDIV|INC|INCT|INV|JEQ|JGT|JHE|JH|JL|JLE|JLT|JMP|JNC|JNE|JNO|JOC|JOP|LDCR|LI|LIMI|LREX|LWPI|MOV|MOVB|MPY|NEG|ORI|RTWP|S|SB|SBO|SBZ|SETO|SLA|SRA|SRC|SRL|STCR|STST|STWP|SWPB|SZC|SZF|TB|X|XOP)\\b"
+          "match": "(?i)\\b(A|AB|ABS|AI|ANDI|B|BL|BLWP|C|CB|CI|CLR|COC|CZC|DEC|DECT|DIV|IDIV|INC|INCT|INV|JEQ|JGT|JHE|JH|JL|JLE|JLT|JMP|JNC|JNE|JNO|JOC|JOP|LDCR|LI|LIMI|LREX|LWPI|MOV|MOVB|MPY|NEG|ORI|RTWP|S|SB|SBO|SBZ|SETO|SLA|SRA|SRC|SRL|STCR|STST|STWP|SWPB|SZC|SZF|TB|X|XOP|XOR)\\b"
         }
       ]
     },
